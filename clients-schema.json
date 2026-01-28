@@ -1,0 +1,68 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "age": { "type": "integer", "minimum": 0 },
+            "loyalty_level": {"type": "string" },
+            "active": { "type": "boolean" },
+            "joined": { "type": "string", "format": "date-time" },
+            "contact": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "phone": { "type": "string" }
+                },
+                "required": ["email", "phone"],
+                "additionalProperties": false
+            },
+            "address": {
+                "type": "object",
+                "properties": {
+                    "city": { "type": "string" },
+                    "country": { "type": "string" },
+                    "postal_code": { "type": "integer" }
+                },
+                "required": ["city", "country", "postal_code"],
+                "additionalProperties": false
+            },
+            "preferred_store": {
+                "type": "object",
+                "properties": {
+                    "brand": { "type": "string" },
+                    "location": { "type": "string" }
+                },
+                "required": ["brand", "location"],
+                "additionalProperties": false
+            },
+            "purchases": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "date": { "type": "string", "format": "date-time" },
+                        "store": { "type": "string" },
+                        "basket": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product": { "type": "string" },
+                                    "category": { "type": "string" },
+                                    "quantity": { "type": "integer", "minimum": 1 },
+                                    "price": { "type": "number", "minimum": 0.01 }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "lifetime_spend": { "type": "number" }
+        },
+        "required": ["id", "name", "age", "loyalty_level", "active", "joined", "contact", "address", "preferred_store", "purchases", "lifetime_spend"],
+        "additionalProperties": false
+    }
+}
