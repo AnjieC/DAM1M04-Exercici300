@@ -8,7 +8,7 @@
             "age": { "type": "integer", "minimum": 0 },
             "loyalty_level": {"type": "string" },
             "active": { "type": "boolean" },
-            "joined": { "type": "string", "format": "date-time" },
+            "joined": { "type": "string", "format": "date" },
             "contact": {
                 "type": "object",
                 "properties": {
@@ -23,7 +23,7 @@
                 "properties": {
                     "city": { "type": "string" },
                     "country": { "type": "string" },
-                    "postal_code": { "type": "integer" }
+                    "postal_code": { "type": "string" }
                 },
                 "required": ["city", "country", "postal_code"],
                 "additionalProperties": false
@@ -43,7 +43,7 @@
                 "items": {
                     "type": "object",
                     "properties": {
-                        "date": { "type": "string", "format": "date-time" },
+                        "date": { "type": "string", "format": "date" },
                         "store": { "type": "string" },
                         "basket": {
                             "type": "array",
