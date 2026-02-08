@@ -1,0 +1,51 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": { "type": "string" },
+            "country": { "type": "string" },
+            "location": { "type": "string" },
+            "time_of_year": {
+                "type": "object",
+                "properties": {
+                    "month": { "type": "string" },
+                    "multi_day": { "type": "boolean" }
+                },
+                "required": ["month", "multi_day"],
+                "additionalProperties": false
+            },
+            "origins": {
+                "type": "object",
+                "properties": {
+                    "century": { "type": "integer", "minimum": 1 },
+                    "background": { "type": "string" }
+                },
+                "required": ["century", "background"],
+                "additionalProperties": false
+            },
+            "themes": {
+                "type": "array",
+                "items": { "type": "string" },
+                "minItems": 1
+            },
+            "activities": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": { "type": "string" },
+                        "description": { "type": "string" }
+                    },
+                    "required": ["title", "description"],
+                    "additionalProperties": false
+                },
+                "minItems": 1
+            },
+            "attendance_estimate": { "type": "integer", "minimum": 0 },
+            "unesco_recognized": { "type": "boolean" }
+        },
+        "required": ["name", "country", "location", "time_of_year", "origins", "themes", "activities", "attendance_estimate", "unesco_recognized"],
+        "additionalProperties": false
+    }
+}
